@@ -1075,7 +1075,7 @@ body {
 
 /* MODIFICATIONS SECTION (from previous) */
 .modifications {
-    background: #0a0a0a url('images/vote-bg.png') center/cover no-repeat fixed; 
+    background: #0a0a0a url('images/backgrounds/torihen castle.PNG') center/cover no-repeat fixed; 
     padding: 6rem 2rem 10rem; /* Increased padding for better spacing with background */
     color: #e0e0e0;
     position: relative;
@@ -1196,4 +1196,5 @@ body {
     .modifications-list li::before {
         left: -1rem;
     }
+
 }
