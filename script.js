@@ -61,7 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const playerCountElement = document.getElementById('player-count');
     if (playerCountElement) {
-        fetch('https://api.mcsrvstat.us/3/mc.legendaryhc.org')
+        let apiUrl = 'https://api.mcsrvstat.us/3/mc.legendaryhc.org'; // Default for main server
+        if (window.location.pathname.includes('respawn.html')) {
+            apiUrl = 'https://api.mcsrvstat.us/3/respawn.legendaryhc.org';
+        }
+        fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
                 if (data.online && data.players && typeof data.players.online === 'number') {
