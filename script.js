@@ -1,3 +1,4 @@
+// Updated script.js
 // Slideshow auto-cycle
 const slides = document.querySelectorAll('.slide');
 const caption = document.querySelector('.caption');
@@ -22,7 +23,11 @@ if (slides.length > 0) {
 
 // IP copy function
 function copyIP() {
-    navigator.clipboard.writeText('mc.legendaryhc.org');
+    let ipToCopy = 'mc.legendaryhc.org';
+    if (window.location.pathname.includes('respawn.html')) {
+        ipToCopy = 'respawn.legendaryhc.org';
+    }
+    navigator.clipboard.writeText(ipToCopy);
     alert('Server IP copied to clipboard!');
 }
 
