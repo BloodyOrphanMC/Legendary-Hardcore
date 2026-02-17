@@ -1,3 +1,7 @@
+/* Updated styles.css: Removed body background-images and moved page-specific backgrounds to .left-side selectors. 
+   This ensures the background photo is only on the left side (replacing the default 'lhc_logo_heads.png' per page) 
+   and prevents the home background from persisting on other pages. Replace the placeholder image paths with your actual file names/paths. */
+
 /* Smooth scrolling for section links */
 html {
     scroll-behavior: smooth;
@@ -6,10 +10,10 @@ html {
 body {
     margin: 0;
     font-family: 'Press Start 2P', cursive;
-    background: #0f0f0f;
     color: #e0e0e0;
     text-align: center;
     padding-top: 60px; /* Space for fixed menu */
+    background: #0f0f0f; /* Fallback color only; no image here to avoid covering both sides */
 }
 
 
@@ -191,7 +195,6 @@ body {
 
 .left-side {
     width: 50%;
-    background-image: url('images/lhc_logo_heads.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -202,6 +205,18 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2rem;
+}
+
+body.home .left-side {
+    background-image: url('images/lhc_logo_heads.png'); /* Home page left background (your original) */
+}
+
+body.respawn .left-side {
+    background-image: url('images/lhc_logo_respawn.png'); /* Replace with your actual respawn left background photo path */
+}
+
+body.events .left-side {
+    background-image: url('images/lhc_logo_events.png'); /* Replace with your actual events left background photo path */
 }
 
 .left-side::before {
@@ -413,6 +428,8 @@ body {
     text-shadow: 0 0 6px rgba(255, 69, 0, 0.5);
 }
 
+
+
 .ip-copy {
     display: inline-flex;
     align-items: center;
@@ -484,6 +501,37 @@ body {
         padding: 0.6rem 1rem;
         font-size: 1rem;
     }
+}
+
+/* Page-specific overrides for respawn.html */
+body.respawn .about-cta {
+    background: linear-gradient(135deg, #00004B, #00008B, #2222B2); /* Blue gradient instead of red */
+    box-shadow: 0 4px 12px rgba(0, 0, 139, 0.4); /* Blue-tinted shadow */
+}
+
+body.respawn .about-cta p {
+    text-shadow: 0 0 6px rgba(0, 69, 255, 0.5); /* Blue-tinted text shadow */
+}
+
+body.respawn .ip-copy {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #00008B; /* Blue border */
+    box-shadow: 0 0 10px rgba(0, 0, 139, 0.5); /* Blue-tinted shadow */
+}
+
+body.respawn .ip-copy span {
+    color: #45AFFF; /* Lighter blue for IP text */
+    text-shadow: 0 0 5px #8CFFFF; /* Blue-tinted shadow */
+}
+
+body.respawn .ip-copy button {
+    background: #00008B; /* Dark blue button */
+    box-shadow: 0 0 8px rgba(0, 0, 139, 0.6); /* Blue-tinted shadow */
+}
+
+body.respawn .ip-copy button:hover {
+    background: #2222B2; /* Lighter blue on hover */
+    box-shadow: 0 0 12px rgba(34, 34, 178, 0.8); /* Blue-tinted hover shadow */
 }
 
 /* RULES SECTION */
@@ -1196,112 +1244,5 @@ body {
     .modifications-list li::before {
         left: -1rem;
     }
-
 }
 
-/* EVENTS SECTION */
-.events {
-    background: #0a0a0a;
-    padding: 6rem 2rem 8rem;
-    color: #e0e0e0;
-    text-align: center;
-}
-
-.events-header {
-    background: #000;
-    padding: 2rem;
-    margin-bottom: 3rem;
-}
-
-.events-header h2 {
-    margin: 0;
-    font-size: 3.5rem;
-    text-transform: uppercase;
-    letter-spacing: 8px;
-    color: #fff;
-}
-
-.events-content {
-    max-width: 900px;
-    margin: 0 auto;
-    font-size: 1.3rem;
-    line-height: 1.8;
-}
-
-.events-content p {
-    margin-bottom: 2rem;
-}
-
-.events-placeholder {
-    margin: 2rem 0;
-    text-align: left;
-}
-
-.events-placeholder h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.events-placeholder ul {
-    list-style: disc;
-    padding-left: 2rem;
-}
-
-@media (max-width: 768px) {
-    .events {
-        padding: 4rem 1rem 6rem;
-    }
-    .events-header h2 {
-        font-size: 2.5rem;
-    }
-    .events-content {
-        font-size: 1.1rem;
-        padding: 0 1rem;
-    }
-}
-
-/* RESPAWN SECTION */
-.respawn {
-    background: #0a0a0a;
-    padding: 6rem 2rem 8rem;
-    color: #e0e0e0;
-    text-align: center;
-}
-
-.respawn-header {
-    background: #000;
-    padding: 2rem;
-    margin-bottom: 3rem;
-}
-
-.respawn-header h2 {
-    margin: 0;
-    font-size: 3.5rem;
-    text-transform: uppercase;
-    letter-spacing: 8px;
-    color: #fff;
-}
-
-.respawn-content {
-    max-width: 900px;
-    margin: 0 auto;
-    font-size: 1.3rem;
-    line-height: 1.8;
-}
-
-.respawn-content p {
-    margin-bottom: 2rem;
-}
-
-@media (max-width: 768px) {
-    .respawn {
-        padding: 4rem 1rem 6rem;
-    }
-    .respawn-header h2 {
-        font-size: 2.5rem;
-    }
-    .respawn-content {
-        font-size: 1.1rem;
-        padding: 0 1rem;
-    }
-}
