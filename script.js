@@ -85,3 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 });
+
+// New: Toggle rank card flip on click for mobile/touch
+document.querySelectorAll('.rank-card').forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+    });
+});
