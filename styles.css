@@ -1,4 +1,5 @@
-```css
+
+
 /* Updated styles.css: Removed body background-images and moved page-specific backgrounds to .left-side selectors. 
    This ensures the background photo is only on the left side (replacing the default 'lhc_logo_heads.png' per page) 
    and prevents the home background from persisting on other pages. Replace the placeholder image paths with your actual file names/paths. */
@@ -16,6 +17,7 @@ body {
     padding-top: 60px; /* Space for fixed menu */
     background: #0f0f0f; /* Fallback color only; no image here to avoid covering both sides */
 }
+
 
 @media (max-width: 1023px) {
     body {
@@ -107,552 +109,40 @@ body {
     margin: 2rem 0;
 }
 
-.nav-menu li a {
+.nav-menu a {
     color: #fff;
+    font-size: 1.8rem;
     text-decoration: none;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s, background 0.3s;
     display: block;
-    padding: 1rem 2rem;
-    border-radius: 4px;
+    padding: 1rem;
+    border-radius: 8px;
 }
 
-.nav-menu li a:hover {
-    color: #00ffff;
-    background: rgba(255, 255, 255, 0.1);
+.nav-menu a:hover {
+    color: #4CAF50;
+    background: rgba(76, 175, 80, 0.15);
 }
 
-.nav-menu li a.active {
-    color: #00ffff;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* Shop button style (cyan for visibility) */
-.nav-menu li a.shop {
-    color: #00ffff;
-    border: 1px solid #00ffff;
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    transition: background 0.3s ease;
-}
-
-.nav-menu li a.shop:hover {
-    background: #00ffff;
+/* Active page highlight  */
+.nav-menu a.active {
+    background: #fff;
     color: #000;
 }
 
-/* Hero section: Split left (text) / right (slideshow) */
-.hero {
-    display: flex;
-    height: calc(100vh - 60px); /* Full height minus nav */
-    align-items: center;
-    justify-content: center;
-}
-
-.left-side {
-    flex: 1;
-    padding: 2rem;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-size: cover; /* For page-specific images */
-    background-position: center;
-}
-
-.left-side h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.left-side p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-.right-side {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Slideshow */
-.slideshow {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1.5s ease;
-}
-
-.slide.active {
-    opacity: 1;
-}
-
-/* Caption (below slideshow) */
-.caption {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+/* Shop/Support highlight  */
+.nav-menu a.shop {
+    background: #5bc0de;
     color: #fff;
-    font-size: 0.9rem;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
 }
 
-/* Social links (Discord, YouTube, etc.) */
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-links a {
+/* Active shop  */
+.nav-menu a.active.shop {
+    background: #31b0d5;
     color: #fff;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
 }
 
-.social-links a:hover {
-    color: #00ffff;
-}
-
-/* About CTA at bottom of index/respawn/events */
-.about-cta {
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.about-cta p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-.ip-copy {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-.ip-copy span {
-    font-size: 1rem;
-}
-
-.ip-copy button {
-    background: #00ffff;
-    color: #000;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.3s ease;
-}
-
-.ip-copy button:hover {
-    background: #00b3b3;
-}
-
-/* About page: Alternating rows */
-.about {
-    padding: 4rem 2rem;
-}
-
-.about-header {
-    margin-bottom: 3rem;
-}
-
-.about-header h2 {
-    font-size: 2rem;
-}
-
-.about-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 4rem;
-    gap: 2rem;
-}
-
-.about-text {
-    flex: 1;
-    text-align: left;
-}
-
-.about-image {
-    flex: 1;
-}
-
-.feature-img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-}
-
-/* Reverse for even rows */
-.row-2 {
-    flex-direction: row-reverse;
-}
-
-/* Rules page: Highlights cards */
-.rules {
-    padding: 4rem 2rem;
-}
-
-.rules-header {
-    margin-bottom: 3rem;
-}
-
-.rules-header h2 {
-    font-size: 2rem;
-}
-
-.rules-intro {
-    margin-bottom: 3rem;
-    font-size: 1rem;
-}
-
-.rules-highlights {
-    display: flex;
-    justify-content: space-around;
-    gap: 2rem;
-}
-
-.rule-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 8px;
-    width: 30%;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
-}
-
-.rule-icon {
-    font-size: 2rem;
-    color: #00ffff;
-    margin-bottom: 1rem;
-}
-
-.rules-details {
-    margin-top: 3rem;
-    font-size: 1rem;
-}
-
-.rules-details a {
-    color: #00ffff;
-    text-decoration: none;
-}
-
-.rules-details a:hover {
-    text-decoration: underline;
-}
-
-/* Modifications page: Columns */
-.modifications {
-    padding: 4rem 2rem;
-}
-
-.modifications-header {
-    margin-bottom: 3rem;
-}
-
-.modifications-header h2 {
-    font-size: 2rem;
-}
-
-.modifications-intro {
-    margin-bottom: 3rem;
-    font-size: 1rem;
-}
-
-.modifications-spacer {
-    height: 2rem;
-}
-
-.modifications-columns {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-}
-
-.modifications-list {
-    flex: 1;
-    text-align: left;
-    font-size: 1rem;
-}
-
-.modifications-list li {
-    margin-bottom: 1rem;
-}
-
-.background-caption {
-    margin-top: 2rem;
-    font-size: 0.8rem;
-    color: #a0a0a0;
-}
-
-/* Support page: Text + Ranks */
-.support {
-    padding: 4rem 2rem;
-    display: flex;
-    justify-content: center;
-}
-
-.support-container {
-    display: flex;
-    gap: 4rem;
-    max-width: 1200px;
-}
-
-.support-text {
-    flex: 1;
-    text-align: left;
-}
-
-.support-text h2 {
-    font-size: 2rem;
-}
-
-.support-text h3 {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-}
-
-.support-text p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.support-text a {
-    color: #00ffff;
-    text-decoration: none;
-}
-
-.support-text a:hover {
-    text-decoration: underline;
-}
-
-.visit-store {
-    display: inline-block;
-    background: #00ffff;
-    color: #000;
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    margin-top: 1rem;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-
-.visit-store:hover {
-    background: #00b3b3;
-}
-
-/* Rank cards with flip */
-.support-ranks {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.rank-card {
-    perspective: 1000px;
-    height: 300px;
-}
-
-.rank-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.rank-card:hover .rank-inner {
-    transform: rotateY(180deg);
-}
-
-.rank-front, .rank-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
-}
-
-.rank-front {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.rank-back {
-    background: rgba(0, 255, 255, 0.1);
-    transform: rotateY(180deg);
-    text-align: left;
-}
-
-.rank-heart {
-    width: 80px;
-    height: auto;
-    margin-bottom: 1rem;
-}
-
-.rank-front h4 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.price {
-    font-size: 1rem;
-    color: #a0a0a0;
-}
-
-.rank-back ul {
-    list-style: disc;
-    padding-left: 1.5rem;
-}
-
-.rank-back li {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-}
-
-/* Vote page: Intro + Table */
-.vote {
-    padding: 4rem 2rem;
-}
-
-.vote-header {
-    margin-bottom: 3rem;
-}
-
-.vote-header h2 {
-    font-size: 2rem;
-}
-
-.vote-intro {
-    margin-bottom: 3rem;
-    font-size: 1rem;
-}
-
-.perks-list {
-    list-style: disc;
-    text-align: left;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    padding-left: 2rem;
-}
-
-.streak-note {
-    font-size: 0.9rem;
-    color: #a0a0a0;
-    margin-top: 1rem;
-}
-
-.vote-table {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.vote-column {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 8px;
-}
-
-.vote-column h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.vote-link {
-    display: block;
-    color: #00ffff;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    text-decoration: none;
-}
-
-.vote-link:hover {
-    text-decoration: underline;
-}
-
-/* Contact section */
-.contact {
-    padding: 4rem 2rem;
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.contact-header {
-    margin-bottom: 3rem;
-}
-
-.contact-header h2 {
-    font-size: 2rem;
-}
-
-.contact-content p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.contact-content a {
-    color: #00ffff;
-    text-decoration: none;
-}
-
-.contact-content a:hover {
-    text-decoration: underline;
-}
-
-.disclaimer {
-    font-size: 0.9rem;
-    color: #a0a0a0;
-}
-
-.credits {
-    font-size: 0.9rem;
-}
-
-.copyright {
-    font-size: 0.8rem;
-    color: #808080;
-}
-
-/* Page-specific left-side backgrounds (replace paths) */
-body.home .left-side {
-    background-image: url('images/lhc_logo_heads.png'); /* Home background */
-}
-
-body.events .left-side {
-    background-image: url('images/events_bg.png'); /* Events background */
-}
-
-body.respawn .left-side {
-    background-image: url('images/respawn_bg.png'); /* Respawn background */
-}
-
-/* Desktop menu (horizontal) */
+/* Responsive: Horizontal menu on desktop */
 @media (min-width: 1024px) {
     .hamburger {
         display: none;
@@ -660,11 +150,11 @@ body.respawn .left-side {
 
     .nav-sidebar {
         position: static;
-        width: auto;
-        height: auto;
+        transform: none;
         background: none;
         backdrop-filter: none;
-        transform: none;
+        height: auto;
+        width: 100%;
         display: block;
     }
 
@@ -683,9 +173,1078 @@ body.respawn .left-side {
         margin: 0 1rem;
     }
 
-    .nav-menu li a {
+    .nav-menu a {
+        font-size: 1.2rem;
         padding: 0.5rem 1rem;
+    }
+}
+
+/* On mobile, force hamburger even if screen is wide but tall */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column; /* Ensure vertical stack in sidebar */
+    }
+    .nav-menu a {
+        font-size: 1.6rem; /* Slightly smaller for mobile */
+    }
+}
+
+/* HERO SECTION (Home) */
+.hero {
+    display: flex;
+    height: 80vh;
+}
+
+.left-side {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+body.home .left-side {
+    background-image: url('images/lhc_logo_heads.png'); /* Home page left background (your original) */
+}
+
+body.respawn .left-side {
+    background-image: url('images/lhc_logo_respawn.png'); /* Replace with your actual respawn left background photo path */
+}
+
+body.events .left-side {
+    background-image: url('images/lhc_logo_events.png'); /* Replace with your actual events left background photo path */
+}
+
+.left-side::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 1;
+}
+
+.left-side > * {
+    position: relative;
+    z-index: 2;
+}
+
+.left-side h1 {
+    font-size: 4rem;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.left-side p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+}
+
+.social-links {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-end;
+}
+
+.social-links a {
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #4CAF50;
+}
+
+.social-links a i {
+    text-shadow: 0 0 6px rgba(0,0,0,0.7);
+}
+
+.right-side {
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slideshow {
+    height: 100%;
+    width: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 1rem;
+    font-size: 1rem;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        height: auto; /* Allow natural height on mobile */
+    }
+    .left-side, .right-side {
+        width: 100%;
+        height: 50vh; /* Half screen for each */
+        padding: 1rem; /* Reduce padding */
+    }
+    .left-side h1 {
+        font-size: 2.5rem; /* Smaller for mobile */
+    }
+    .left-side p {
         font-size: 1rem;
+    }
+    .social-links {
+        position: static;
+        margin-top: 1rem;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .social-links a {
+        font-size: 1.5rem;
+    }
+    .slide {
+        height: 100%;
+        object-fit: contain; /* Fit without cropping on mobile */
+    }
+    .caption {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+}
+
+/* ABOUT SECTION */
+.about {
+    background: #111;
+    padding: 0;
+    color: #e0e0e0;
+}
+
+.about-header {
+    background: #000;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.about-header h2 {
+    margin: 0;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+
+.about-row {
+    display: flex;
+    align-items: stretch;
+    min-height: 60vh;
+    flex-wrap: wrap;
+}
+
+.about-row .about-text,
+.about-row .about-image {
+    flex: 1;
+    min-width: 300px;
+    padding: 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-row .about-text p {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    margin: 0;
+}
+
+.about-row .about-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.about-row:hover .feature-img {
+    transform: scale(1.05);
+}
+
+.row-1,
+.row-3 {
+    background: #1a1a1a;
+}
+
+.row-2 {
+    background: #222222;
+}
+
+.about-cta {
+    background: linear-gradient(135deg, #4B0000, #8B0000, #B22222);
+    padding: 2.5rem;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(139, 0, 0, 0.4);
+}
+
+.about-cta p {
+    font-size: 2rem;
+    margin: 0 0 1.5rem;
+    text-shadow: 0 0 6px rgba(255, 69, 0, 0.5);
+}
+
+
+
+.ip-copy {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.6rem;
+    gap: 1.5rem;
+    border: 2px solid #8B0000;
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+}
+
+.ip-copy span {
+    font-family: monospace;
+    color: #FF4500;
+    text-shadow: 0 0 5px #FF8C00;
+    font-weight: bold;
+}
+
+.ip-copy button {
+    background: #8B0000;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px rgba(139, 0, 0, 0.6);
+}
+
+.ip-copy button:hover {
+    background: #B22222;
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(178, 34, 34, 0.8);
+}
+
+@media (max-width: 768px) {
+    .about-header h2 {
+        font-size: 2rem;
+    }
+    .about-row {
+        flex-direction: column;
+        min-height: auto;
+    }
+    .about-row .about-text,
+    .about-row .about-image {
+        padding: 1.5rem 2rem;
+        min-height: auto;
+    }
+    .about-row .about-text p {
+        font-size: 1rem;
+        line-height: 1.6; 
+    }
+    .about-cta {
+        padding: 2rem 1rem;
+    }
+    .about-cta p {
+        font-size: 1.5rem;
+    }
+    .ip-copy {
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 1.4rem;
+        padding: 0.8rem 1.5rem;
+    }
+    .ip-copy button {
+        padding: 0.6rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* Page-specific overrides for respawn.html */
+body.respawn .about-cta {
+    background: linear-gradient(135deg, #00004B, #00008B, #2222B2); /* Blue gradient instead of red */
+    box-shadow: 0 4px 12px rgba(0, 0, 139, 0.4); /* Blue-tinted shadow */
+}
+
+body.respawn .about-cta p {
+    text-shadow: 0 0 6px rgba(0, 69, 255, 0.5); /* Blue-tinted text shadow */
+}
+
+body.respawn .ip-copy {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #00008B; /* Blue border */
+    box-shadow: 0 0 10px rgba(0, 0, 139, 0.5); /* Blue-tinted shadow */
+}
+
+body.respawn .ip-copy span {
+    color: #45AFFF; /* Lighter blue for IP text */
+    text-shadow: 0 0 5px #8CFFFF; /* Blue-tinted shadow */
+}
+
+body.respawn .ip-copy button {
+    background: #00008B; /* Dark blue button */
+    box-shadow: 0 0 8px rgba(0, 0, 139, 0.6); /* Blue-tinted shadow */
+}
+
+body.respawn .ip-copy button:hover {
+    background: #2222B2; /* Lighter blue on hover */
+    box-shadow: 0 0 12px rgba(34, 34, 178, 0.8); /* Blue-tinted hover shadow */
+}
+
+/* RULES SECTION */
+.rules {
+    background: #0f0f0f;
+    padding: 4rem 2rem;
+    color: #e0e0e0;
+}
+
+.rules-header {
+    background: #000;
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 4px solid #00aaff;
+}
+
+.rules-header h2 {
+    margin: 0;
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: #fff;
+}
+
+.rules-intro {
+    text-align: center;
+    max-width: 900px;
+    margin: 2rem auto;
+}
+
+.rules-intro p {
+    font-size: 1.4rem;
+    color: #ffcc00;
+    margin: 0;
+}
+
+.rules-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    margin: 4rem 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rule-card {
+    background: #1a1a1a;
+    padding: 2rem;
+    width: 300px;
+    text-align: center;
+    border-radius: 8px;
+    border: 2px solid #333;
+    transition: transform 0.3s;
+}
+
+.rule-card:hover {
+    transform: translateY(-10px);
+    border-color: #00aaff;
+}
+
+.rule-icon {
+    font-size: 4rem;
+    color: #00aaff;
+    margin-bottom: 1rem;
+}
+
+.rule-card p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.rules-details {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
+.rules-details p {
+    margin-bottom: 1.5rem;
+}
+
+.rules-details a {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+.rules-details a:hover {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .rules {
+        padding: 2rem 1rem;
+    }
+    .rules-header h2 {
+        font-size: 2.2rem;
+    }
+    .rules-intro p {
+        font-size: 1.2rem;
+    }
+    .rules-highlights {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .rule-card {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    .rule-icon {
+        font-size: 3rem;
+    }
+    .rule-card p {
+        font-size: 1rem;
+    }
+    .rules-details {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+/* SUPPORT SECTION - COMPACT & EVEN CARDS */
+.support {
+    background: #0a0a0a url('images/backgrounds/2025-10-23_02.30.45.png') center/cover no-repeat fixed;
+    padding: 6rem 2rem 12rem;
+    color: #fff;
+    position: relative;
+}
+
+.support::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 0;
+}
+
+.support > * {
+    position: relative;
+    z-index: 1;
+}
+
+.support-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 6rem;
+    flex-wrap: wrap;
+}
+
+.support-text {
+    flex: 1;
+    min-width: 380px;
+}
+
+.support-text h2 {
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 4px;
+}
+
+.support-text h3 {
+    font-size: 3rem;
+    color: #00bfff;
+    margin-bottom: 2rem;
+}
+
+.support-text p {
+    font-size: 1.3rem;
+    line-height: 1.9;
+    margin-bottom: 2rem;
+}
+
+.visit-store {
+    display: inline-block;
+    background: #ff4500;
+    color: white;
+    padding: 1.2rem 3rem;
+    font-size: 1.6rem;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 2rem;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.visit-store:hover {
+    background: #ff6347;
+}
+
+.support-ranks {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.rank-card {
+    position: relative;
+    height: 260px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.rank-card:hover {
+    transform: translateY(-8px);
+}
+
+.rank-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.rank-card:hover .rank-inner {
+    transform: rotateY(180deg);
+}
+
+.rank-front,
+.rank-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    padding: 1.5rem;
+    background: rgba(20, 20, 20, 0.92);
+    border: 3px solid #444;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+    overflow: hidden;
+}
+
+.rank-back {
+    transform: rotateY(180deg);
+    background: rgba(30, 30, 30, 0.98);
+    overflow-y: auto;
+}
+
+.rank-heart {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+}
+
+.rank-card h4 {
+    font-size: 2.4rem;
+    margin: 0.5rem 0;
+    color: #ffd700;
+}
+
+.price {
+    font-size: 1.6rem;
+    color: #00ff9d;
+    font-weight: bold;
+    text-align: center;
+}
+
+.rank-back ul {
+    list-style: none;
+    padding: 0 1.5rem;
+    margin: 0;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.rank-back li {
+    margin-bottom: 0.7rem;
+    position: relative;
+    padding-left: 1.6rem;
+}
+
+.rank-back li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #ffd700;
+}
+
+.gold .rank-front { border-color: #ffd700; }
+.diamond .rank-front { border-color: #00bfff; }
+.hardcore .rank-front { border-color: #ff4500; }
+
+@media (max-width: 768px) {
+    .support {
+        padding: 4rem 1rem 8rem;
+    }
+    .support-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .support-text h2 {
+        font-size: 3.5rem;
+    }
+    .support-text h3 {
+        font-size: 2.2rem;
+    }
+    .support-text p {
+        font-size: 1.1rem;
+    }
+    .visit-store {
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+    }
+    .support-ranks {
+        gap: 3rem;
+    }
+    .rank-card {
+        height: auto; /* Allow natural height on mobile */
+    }
+    .rank-inner {
+        transform: none !important; /* Disable flip on mobile for simplicity; show front only or tap to flip if needed */
+    }
+    .rank-back {
+        display: none; /* Optional: Show only front on mobile, or add JS tap to toggle */
+    }
+    .rank-heart {
+        width: 80px;
+        height: 80px;
+    }
+    .rank-card h4 {
+        font-size: 2rem;
+    }
+    .price {
+        font-size: 1.4rem;
+    }
+}
+
+/* VOTE SECTION */
+.vote {
+    background: #0a0a0a url('images/vote-bg.png') center/cover no-repeat fixed;
+    padding: 6rem 2rem 10rem;
+    color: #e0e0e0;
+    position: relative;
+}
+
+.vote::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+}
+
+.vote > * {
+    position: relative;
+    z-index: 1;
+}
+
+.vote-header {
+    background: #000;
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 4px solid #00aaff;
+}
+
+.vote-header h2 {
+    margin: 0;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: #fff;
+}
+
+.vote-intro {
+    max-width: 1000px;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.vote-intro p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.perks-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    font-size: 1.2rem;
+}
+
+.perks-list li {
+    margin-bottom: 1rem;
+    color: #ffcc00;
+}
+
+.streak-note {
+    font-size: 1.1rem;
+    color: #aaa;
+    font-style: italic;
+}
+
+.vote-table {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 4rem auto;
+}
+
+.vote-column {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(30, 30, 30, 0.8);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid #333;
+}
+
+.vote-column h3 {
+    font-size: 2rem;
+    color: #00aaff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.vote-link {
+    display: block;
+    background: #222;
+    color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.vote-link:hover {
+    background: #00aaff;
+}
+
+.streak-tier,
+.milestone-tier {
+    background: #1a1a1a;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.vote-note {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .vote {
+        padding: 4rem 1rem 6rem;
+    }
+    .vote-header h2 {
+        font-size: 2.5rem;
+    }
+    .vote-intro p {
+        font-size: 1.1rem;
+    }
+    .perks-list {
+        font-size: 1rem;
+    }
+    .streak-note {
+        font-size: 1rem;
+    }
+    .vote-table {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .vote-column {
+        min-width: 100%;
+        padding: 1.5rem;
+    }
+    .vote-column h3 {
+        font-size: 1.8rem;
+    }
+    .vote-link {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+}
+
+/* CONTACT SECTION */
+.contact {
+    background: #0a0a0a;
+    padding: 6rem 2rem 8rem;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+.contact-header {
+    background: #000;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.contact-header h2 {
+    margin: 0;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: #fff;
+}
+
+.contact-content {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    line-height: 1.8;
+}
+
+.contact-content p {
+    margin-bottom: 2rem;
+}
+
+.contact-content a {
+    color: #00bfff;
+    text-decoration: underline;
+}
+
+.contact-content a:hover {
+    color: #fff;
+}
+
+.disclaimer {
+    font-size: 1.1rem;
+    color: #aaa;
+    font-style: italic;
+    margin: 4rem 0 2rem;
+}
+
+.credits {
+    font-size: 1.2rem;
+    margin: 2rem 0;
+}
+
+.copyright {
+    font-size: 1rem;
+    color: #777;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: 4rem 1rem 6rem;
+    }
+    .contact-header {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .contact-header h2 {
+        font-size: 2.5rem;
+    }
+    .contact-content {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+    .disclaimer {
+        margin: 2rem 0 1rem;
+        font-size: 1rem;
+    }
+    .credits {
+        font-size: 1.1rem;
+    }
+    .copyright {
+        font-size: 0.9rem;
+    }
+    .ip-copy { 
+        flex-direction: column;
+    }
+}
+
+/* MODIFICATIONS SECTION (from previous) */
+.modifications {
+    background: #0a0a0a url('images/backgrounds/torihen castle.PNG') center/cover no-repeat fixed; 
+    padding: 6rem 2rem 10rem; /* Increased padding for better spacing with background */
+    color: #e0e0e0;
+    position: relative;
+}
+
+.modifications::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay for readability */
+    z-index: 0;
+}
+
+.modifications > * {
+    position: relative;
+    z-index: 1;
+}
+
+.modifications-header {
+    background: #000;
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 4px solid #00aaff;
+}
+
+.modifications-header h2 {
+    margin: 0;
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: #fff;
+}
+
+.modifications-intro {
+    text-align: center;
+    max-width: 900px;
+    margin: 2rem auto;
+}
+
+.modifications-intro p {
+    font-size: 1.4rem;
+    color: #ffcc00;
+    margin: 0;
+}
+
+.modifications-columns {
+    display: flex;
+    justify-content: space-between; /* Pushes columns to far left and far right */
+    max-width: 1200px; /* Wider container for larger middle gap */
+    margin: 4rem auto;
+    gap: 4rem; /* Minimum gap, but space-between will maximize it */
+}
+
+.modifications-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    text-align: left;
+    flex: 1; /* Allows each column to take equal space if needed, but with space-between */
+    max-width: 45%; /* Limits width for larger center gap */
+}
+
+@media (max-width: 768px) {
+    .modifications {
+        padding: 4rem 1rem 6rem;
+    }
+    .modifications-header h2 {
+        font-size: 2.5rem;
+    }
+    .modifications-intro p {
+        font-size: 1.2rem;
+        padding: 0 1rem;
+    }
+    .modifications-columns {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .modifications-list {
+        max-width: 100%;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    .modifications-list li {
+        margin-bottom: 1rem;
+    }
+}
+
+.modifications-list li {
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.modifications-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #00aaff;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .modifications-header h2 {
+        font-size: 2.5rem;
+    }
+    .modifications-list {
+        text-align: center;
+        padding: 0 1rem;
+    }
+    .modifications-list li {
+        padding-left: 0;
+        text-align: left;
+    }
+    .modifications-list li::before {
+        left: -1rem;
     }
 }
 
@@ -694,22 +1253,14 @@ body.respawn .left-side {
     /* Reduce overall font size to prevent wrapping issues */
     body {
         font-size: 0.75rem; /* Smaller pixel font for better fit */
-        overflow-x: hidden; /* Prevent horizontal scroll */
-        max-width: 100vw; /* Lock to viewport width */
     }
-
-    /* Disable hyphens globally on mobile to prevent unwanted '-' in wraps */
-    hyphens: none !important;
 
     /* Headers: Smaller size, better centering, allow wrapping */
     h1, h2 {
-        font-size: 0.8rem; /* Smaller to fit most headers on one line or wrap cleanly */
+        font-size: 1.2rem; /* Down from implicit larger sizes */
         line-height: 1.2;
-        word-break: normal; /* Wrap at spaces, overflow if word too long */
-        overflow-wrap: break-word; /* Break long words without hyphen if they overflow */
-        white-space: normal;
-        max-width: 90%; /* Constrain width */
-        margin: 0 auto; /* Center */
+        word-break: break-word; /* Break long words like "MODIFICATIONS" */
+        hyphens: auto; /* Auto-hyphenate where possible (limited in pixel font) */
         text-align: center;
     }
 
@@ -717,7 +1268,7 @@ body.respawn .left-side {
     p, .about-text p, .rules-intro p, .vote-intro p, .support-text p, .modifications-intro p {
         font-size: 0.8rem;
         word-break: break-word;
-        hyphens: none;
+        hyphens: auto;
         text-align: center; /* Center text blocks for mobile symmetry */
         padding: 0 1rem; /* Add side padding to prevent edge touching */
     }
@@ -725,13 +1276,10 @@ body.respawn .left-side {
     /* Nav menu: Smaller font, center text, more padding for touch */
     .nav-sidebar {
         width: 100%; /* Full width on very small screens for easier reading */
-        overflow-y: scroll; /* Change to scroll for always visible scrollbar if needed */
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-        max-height: 100vh;
     }
 
     .nav-menu li a {
-        font-size: 0.75rem; /* Smaller to fit without wrapping */
+        font-size: 0.9rem; /* Smaller to fit without wrapping */
         padding: 1rem; /* More touch space */
         text-align: center; /* Center items */
         word-break: break-word;
@@ -739,23 +1287,14 @@ body.respawn .left-side {
 
     /* Ensure full list shows: Increase height if needed, but scrolling is fine */
     .nav-menu {
-        padding: 6rem 1rem 6rem; /* Adjust top padding for close button */
-        min-height: auto; /* Allow content to dictate height */
+        padding: 4rem 1rem 2rem; /* Adjust top padding for close button */
     }
 
     /* Rules page: Center cards and text */
-    .rules-highlights {
-        display: flex;
-        flex-direction: column; /* Stack vertically on mobile */
-        align-items: center; /* Center horizontally */
-        gap: 1rem;
-    }
-
     .rule-card {
         text-align: center;
         font-size: 0.8rem;
         padding: 1rem;
-        max-width: 90%; /* Prevent overflow */
     }
 
     .rule-card p {
@@ -765,14 +1304,11 @@ body.respawn .left-side {
     /* Modifications page: Center lists on mobile */
     .modifications-columns {
         flex-direction: column; /* Already does this, but confirm */
-        align-items: center;
     }
 
     .modifications-list {
         text-align: center; /* Center bullets */
         font-size: 0.8rem;
-        max-width: 90%;
-        margin: 0 auto;
     }
 
     .modifications-list li {
@@ -792,8 +1328,7 @@ body.respawn .left-side {
 
     /* For flip: We'll use JS for click, but as fallback, show back below front on mobile */
     .rank-back {
-        display: block !important; /* Fallback: Always show perks below front on mobile */
-        margin-top: 1rem;
+        display: none; /* Hide by default */
     }
 
     .rank-card.flipped .rank-front {
@@ -818,12 +1353,6 @@ body.respawn .left-side {
     .vote-table, .perks-list {
         text-align: center;
         font-size: 0.8rem;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
-    .vote-column {
-        text-align: center;
     }
 
     .vote-link {
@@ -840,54 +1369,4 @@ body.respawn .left-side {
     .hero {
         flex-direction: column; /* Stack left/right on mobile if not already */
     }
-
-    .hero .left-side, .hero .right-side {
-        max-width: 100%;
-        text-align: center;
-    }
-
-    /* All sections: Ensure no overflow */
-    .hero, .about, .rules, .modifications, .support, .vote, .contact {
-        max-width: 100%;
-        overflow-x: hidden;
-        box-sizing: border-box; /* Include padding in width */
-    }
-
-    /* Specific sections: Override if needed for finer control */
-    .rules-header h2, .contact-header h2 {
-        font-size: 0.75rem; /* Extra small for "SERVER RULES" and "CONTACT US" to wrap as "CONTACT\nUS" */
-    }
-
-    .modifications-header h2 {
-        font-size: 0.75rem; /* For "SERVER MODIFICATIONS" to wrap as "SERVER\nMODIFICATIONS" */
-    }
-
-    .support-text h2, .support-text h3 {
-        font-size: 0.75rem; /* For "SUPPORT" and "LEGENDARY HARDCORE" */
-    }
-
-    .vote-header h2 {
-        font-size: 0.7rem; /* For "VOTE FOR LEGENDARY HARDCORE" to prevent split */
-    }
-
-    /* Index/About CTA and paragraphs: Smaller font for clean wraps without '-' */
-    .about-cta {
-        text-align: center;
-        max-width: 100%;
-    }
-
-    .about-cta p {
-        font-size: 0.8rem;
-        word-break: normal;
-        overflow-wrap: break-word;
-    }
-
-    .ip-copy {
-        justify-content: center;
-    }
-
-    .about-text p {
-        font-size: 0.75rem; /* Reduce for about.html to avoid any '-' in paragraphs */
-    }
 }
-```
