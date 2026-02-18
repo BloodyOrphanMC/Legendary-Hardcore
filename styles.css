@@ -1369,3 +1369,135 @@ body.respawn .ip-copy button:hover {
     }
 }
 
+/* Additional Mobile Fixes - Add these to the bottom of styles.css */
+
+/* General: Eliminate horizontal wiggle room (overflow) */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        max-width: 100vw; /* Lock to viewport width */
+    }
+
+    /* All sections: Ensure no overflow */
+    .hero, .about, .rules, .modifications, .support, .vote, .contact {
+        max-width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    /* Headers: Force wrapping for long titles, smaller size */
+    h1, h2 {
+        font-size: 1rem; /* Even smaller for very long headers */
+        word-break: break-all; /* Aggressively break words if needed */
+        hyphens: none; /* Disable hyphens to avoid weird pixel font breaks */
+        white-space: normal; /* Allow natural wrapping */
+        max-width: 90%; /* Constrain width */
+        margin: 0 auto; /* Center */
+    }
+
+    /* Index.html: Align elements evenly */
+    .hero .left-side, .hero .right-side {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .about-cta {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .ip-copy {
+        justify-content: center;
+    }
+
+    /* Rules.html: Center the 3 cards */
+    .rules-highlights {
+        display: flex;
+        flex-direction: column; /* Stack vertically on mobile */
+        align-items: center; /* Center horizontally */
+        gap: 1rem;
+    }
+
+    .rule-card {
+        max-width: 90%; /* Prevent overflow */
+        text-align: center;
+    }
+
+    /* Modifications.html: Fix header overflow */
+    .modifications-header h2 {
+        font-size: 1rem;
+        word-break: break-all;
+        max-width: 100%;
+    }
+
+    .modifications-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modifications-list {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    /* Support.html: Ensure rank details show on flip */
+    /* (JS click toggle should handle visibility; add fallback to show back always on mobile if needed) */
+    .rank-back {
+        display: block !important; /* Fallback: Always show perks below front on mobile */
+        margin-top: 1rem;
+    }
+
+    .rank-card.flipped .rank-front {
+        display: none;
+    }
+
+    .rank-card.flipped .rank-back {
+        display: block;
+    }
+
+    /* If rework needed: Stack front and back vertically without flip */
+    /* Uncomment if click isn't sufficient: */
+    /*
+    .rank-inner {
+        transform: none !important; /* Disable flip animation */
+    }
+    .rank-front, .rank-back {
+        position: static;
+        backface-visibility: visible;
+        transform: none;
+    }
+    .rank-back {
+        margin-top: 1rem;
+    }
+    */
+
+    /* Vote.html: Center header, prevent run-off */
+    .vote-header h2 {
+        font-size: 1rem;
+        word-break: break-all;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .vote-table {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .vote-column {
+        text-align: center;
+    }
+}
+
+/* Nav Menu: Make scrollable on mobile */
+@media (max-width: 768px) {
+    .nav-sidebar {
+        overflow-y: auto; /* Enable vertical scroll */
+        max-height: 100vh; /* Full height, scroll if overflows */
+    }
+
+    .nav-menu {
+        padding-bottom: 4rem; /* Extra space at bottom for scrolling */
+    }
+}
+
