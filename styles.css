@@ -766,7 +766,6 @@ body.respawn .ip-copy button:hover {
     flex-direction: column;
     gap: 4rem;
 }
-
 .rank-card {
     position: relative;
     height: 260px;
@@ -774,11 +773,9 @@ body.respawn .ip-copy button:hover {
     cursor: pointer;
     transition: transform 0.3s ease;
 }
-
 .rank-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px); /* Keep this for desktop lift effect */
 }
-
 .rank-inner {
     position: absolute;
     width: 100%;
@@ -786,11 +783,9 @@ body.respawn .ip-copy button:hover {
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
-
-.rank-card:hover .rank-inner {
+.rank-card.flipped .rank-inner { /* NEW: Use .flipped class for rotation (triggered by JS) */
     transform: rotateY(180deg);
 }
-
 .rank-front,
 .rank-back {
     position: absolute;
@@ -808,32 +803,27 @@ body.respawn .ip-copy button:hover {
     box-shadow: 0 6px 20px rgba(0,0,0,0.7);
     overflow: hidden;
 }
-
 .rank-back {
     transform: rotateY(180deg);
     background: rgba(30, 30, 30, 0.98);
     overflow-y: auto;
 }
-
 .rank-heart {
     width: 120px;
     height: 120px;
     margin-bottom: 1rem;
 }
-
 .rank-card h4 {
     font-size: 2.4rem;
     margin: 0.5rem 0;
     color: #ffd700;
 }
-
 .price {
     font-size: 1.6rem;
     color: #00ff9d;
     font-weight: bold;
     text-align: center;
 }
-
 .rank-back ul {
     list-style: none;
     padding: 0 1.5rem;
@@ -842,20 +832,17 @@ body.respawn .ip-copy button:hover {
     font-size: 1rem;
     line-height: 1.7;
 }
-
 .rank-back li {
     margin-bottom: 0.7rem;
     position: relative;
     padding-left: 1.6rem;
 }
-
 .rank-back li:before {
     content: "→";
     position: absolute;
     left: 0;
     color: #ffd700;
 }
-
 .gold .rank-front { border-color: #ffd700; }
 .diamond .rank-front { border-color: #00bfff; }
 .hardcore .rank-front { border-color: #ff4500; }
@@ -1429,6 +1416,7 @@ body.respawn .ip-copy button:hover {
         padding: 1rem 1rem;
     }
 }
+
 
 
 
