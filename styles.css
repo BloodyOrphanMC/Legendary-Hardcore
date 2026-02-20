@@ -17,15 +17,15 @@ html {
 html, body {
     max-width: 100%;
     overflow-x: hidden;               /* Kills horizontal scroll completely */
-    word-break: break-word;           /* Forces long words to break */
     overflow-wrap: break-word;
     -webkit-overflow-scrolling: touch;
 }
 
-/* Extra aggressive breaking for the pixel font */
+/* Less aggressive word breaking: only break if absolutely necessary */
 p, li, h1, h2, h3, h4, .rule-card p, .vote-link, .about-text p {
-    word-break: break-all;            /* Breaks even "texturepacks" etc. */
-    hyphens: auto;
+    word-break: normal;               /* Default: don't break words unless overflow */
+    overflow-wrap: break-word;        /* Break long words only if they overflow */
+    hyphens: none;                    /* Disable automatic hyphens */
 }
 
 /* Make sure ALL containers never exceed screen width */
@@ -1279,19 +1279,19 @@ body.respawn .ip-copy button:hover {
 /* ====================== MOBILE STYLES (768px and below) ====================== */
 @media (max-width: 768px) {
     body {
-        font-size: 0.78rem;           /* Slightly smaller pixel font */
+        font-size: 0.70rem;           /* Smaller font to fit more without breaking */
         padding-top: 50px;
     }
 
     h1, h2, h3, h4 {
-        font-size: 1.15rem !important;
-        line-height: 1.3;
-        word-break: break-all;
+        font-size: 1.0rem !important;
+        line-height: 1.4;
+        overflow-wrap: break-word;
     }
 
     p, li, .rule-card p, .vote-intro p, .modifications-list li, .support-text p {
-        font-size: 0.82rem;
-        line-height: 1.55;
+        font-size: 0.75rem;
+        line-height: 1.6;             /* More space between lines for readability */
         padding: 0 1rem;
     }
 
@@ -1304,9 +1304,9 @@ body.respawn .ip-copy button:hover {
 
     /* Vote links */
     .vote-link {
-        font-size: 0.85rem;
+        font-size: 0.80rem;
         padding: 0.9rem 0.8rem;
-        word-break: break-all;
+        overflow-wrap: break-word;
     }
 
     /* Hero images (home, events, respawn) */
@@ -1340,5 +1340,6 @@ body.respawn .ip-copy button:hover {
         padding: 1rem 1rem;
     }
 }
+
 
 
