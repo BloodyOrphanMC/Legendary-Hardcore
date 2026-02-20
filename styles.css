@@ -32,8 +32,8 @@ p, li, h1, h2, h3, h4, .rule-card p, .vote-link, .about-text p {
 .about-row, .rules-highlights, .vote-table, .support-container, 
 .modifications-columns, .contact-content, .support-ranks {
     max-width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.2rem;             /* Slight increase for breathing room */
+    padding-right: 1.2rem;
     box-sizing: border-box;
 }
 
@@ -1279,20 +1279,22 @@ body.respawn .ip-copy button:hover {
 /* ====================== MOBILE STYLES (768px and below) ====================== */
 @media (max-width: 768px) {
     body {
-        font-size: 0.70rem;           /* Smaller font to fit more without breaking */
+        font-size: 0.65rem;           /* Smaller font to fit whole words without breaking */
         padding-top: 50px;
     }
 
     h1, h2, h3, h4 {
-        font-size: 1.0rem !important;
+        font-size: 0.95rem !important;
         line-height: 1.4;
         overflow-wrap: break-word;
+        text-align: center;           /* Center headings for better flow */
     }
 
     p, li, .rule-card p, .vote-intro p, .modifications-list li, .support-text p {
-        font-size: 0.75rem;
+        font-size: 0.70rem;
         line-height: 1.6;             /* More space between lines for readability */
-        padding: 0 1rem;
+        padding: 0 1.2rem;
+        text-align: center;           /* Center text blocks for symmetry */
     }
 
     /* Rule cards on rules.html */
@@ -1300,11 +1302,12 @@ body.respawn .ip-copy button:hover {
         width: 100% !important;
         padding: 1.2rem 1rem;
         margin-bottom: 1rem;
+        text-align: center;           /* Center content inside cards */
     }
 
     /* Vote links */
     .vote-link {
-        font-size: 0.80rem;
+        font-size: 0.75rem;
         padding: 0.9rem 0.8rem;
         overflow-wrap: break-word;
     }
@@ -1340,6 +1343,7 @@ body.respawn .ip-copy button:hover {
         padding: 1rem 1rem;
     }
 }
+
 
 
 
