@@ -1278,8 +1278,59 @@ body.respawn .ip-copy button:hover {
 
 /* ====================== MOBILE STYLES (768px and below) ====================== */
 @media (max-width: 768px) {
+    /* Hero section: Ensure full width and proper stacking */
+    .hero {
+        flex-direction: column;           /* Stack left over right */
+        align-items: center;              /* Center everything horizontally */
+        padding: 0;                       /* Remove extra padding */
+    }
+
+    .left-side, .right-side {
+        width: 100% !important;           /* Full width for both sides */
+        padding: 1rem 0;                  /* Vertical spacing */
+    }
+
+    /* Slideshow: Make it full-width and responsive */
+    .slideshow {
+        position: relative;
+        width: 100%;
+        height: auto;                     /* Auto height based on images */
+        overflow: hidden;                 /* Prevent overflow */
+    }
+
+    .slide {
+        width: 100%;
+        height: auto;
+        display: none;                    /* Hide by default, show active */
+        object-fit: cover;                /* Cover the area without distortion */
+    }
+
+    .slide.active {
+        display: block;                   /* Show the active slide */
+    }
+
+    .slideshow img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 50vh;                 /* Limit max height to half viewport for balance */
+    }
+
+    /* Caption: Center and style for mobile */
+    .caption {
+        text-align: center;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+    }
+
+    /* CTA below hero: Adjust for mobile */
+    .about-cta {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    /* Other mobile styles (keep your existing ones) */
     body {
-        font-size: 0.65rem;           /* Smaller font to fit whole words without breaking */
+        font-size: 0.65rem;
         padding-top: 50px;
     }
 
@@ -1287,14 +1338,14 @@ body.respawn .ip-copy button:hover {
         font-size: 0.95rem !important;
         line-height: 1.4;
         overflow-wrap: break-word;
-        text-align: center;           /* Center headings for better flow */
+        text-align: center;
     }
 
     p, li, .rule-card p, .vote-intro p, .modifications-list li, .support-text p {
         font-size: 0.70rem;
-        line-height: 1.6;             /* More space between lines for readability */
+        line-height: 1.6;
         padding: 0 1.2rem;
-        text-align: center;           /* Center text blocks for symmetry */
+        text-align: center;
     }
 
     /* Rule cards on rules.html */
@@ -1302,7 +1353,7 @@ body.respawn .ip-copy button:hover {
         width: 100% !important;
         padding: 1.2rem 1rem;
         margin-bottom: 1rem;
-        text-align: center;           /* Center content inside cards */
+        text-align: center;
     }
 
     /* Vote links */
@@ -1310,13 +1361,6 @@ body.respawn .ip-copy button:hover {
         font-size: 0.75rem;
         padding: 0.9rem 0.8rem;
         overflow-wrap: break-word;
-    }
-
-    /* Hero images (home, events, respawn) */
-    .hero, .right-side, .slideshow img {
-        width: 100% !important;
-        height: auto !important;
-        object-fit: contain;
     }
 
     /* Support rank cards */
@@ -1343,6 +1387,7 @@ body.respawn .ip-copy button:hover {
         padding: 1rem 1rem;
     }
 }
+
 
 
 
