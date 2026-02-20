@@ -1331,21 +1331,52 @@ body.respawn .ip-copy button:hover {
         padding: 1rem;
     }
 
-    /* Support page: Fix rank card spacing */
+    /* Support page: Fix rank card spacing and full visibility */
     .support-ranks {
         flex-direction: column;           /* Ensure vertical stack */
-        gap: 2.5rem;                      /* Increase gap between cards */
+        gap: 2.5rem;                      /* Space between cards */
         align-items: center;              /* Center cards horizontally */
     }
 
     .rank-card {
         width: 90% !important;            /* Slightly narrower for centering/margins */
-        height: auto;                     /* Auto height for content */
+        min-height: 180px;                /* Minimum height to show full content like desktop */
+        height: auto;                     /* Allow expansion if needed */
         margin-bottom: 2rem;              /* Extra bottom margin for spacing */
+        padding: 1rem;                    /* Internal padding for content breathing room */
     }
 
-    .rank-inner, .rank-front, .rank-back {
-        height: 100%;                     /* Ensure full height for flip */
+    .rank-inner {
+        height: 100%;                     /* Full height for flip container */
+    }
+
+    .rank-front, .rank-back {
+        height: 100%;                     /* Ensure both sides fill the card */
+        padding: 1.5rem;                  /* More padding to mimic desktop spacing */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rank-heart {
+        width: 60px;                      /* Scale down heart images for mobile fit */
+        height: auto;
+        margin-bottom: 1rem;              /* Space below heart */
+    }
+
+    .rank-front h4 {
+        font-size: 1.2rem;                /* Slightly larger title for visibility */
+        margin-bottom: 0.5rem;
+    }
+
+    .rank-front .price {
+        font-size: 0.9rem;                /* Adjust price text size */
+    }
+
+    .rank-back ul {
+        font-size: 0.75rem;               /* Perk list size for readability */
+        text-align: center;
     }
 
     /* Other mobile styles (keep your existing ones) */
@@ -1398,6 +1429,7 @@ body.respawn .ip-copy button:hover {
         padding: 1rem 1rem;
     }
 }
+
 
 
 
