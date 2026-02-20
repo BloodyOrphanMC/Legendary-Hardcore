@@ -768,7 +768,8 @@ body.respawn .ip-copy button:hover {
 }
 .rank-card {
     position: relative;
-    height: 260px;
+    height: auto;                     /* Changed to auto to fit content and prevent cutoff */
+    min-height: 260px;                /* Minimum to match original size, but expandable */
     perspective: 1000px;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -783,7 +784,7 @@ body.respawn .ip-copy button:hover {
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
-.rank-card.flipped .rank-inner { /* NEW: Use .flipped class for rotation (triggered by JS) */
+.rank-card.flipped .rank-inner { /* Use .flipped class for rotation (triggered by JS) */
     transform: rotateY(180deg);
 }
 .rank-front,
@@ -807,6 +808,7 @@ body.respawn .ip-copy button:hover {
     transform: rotateY(180deg);
     background: rgba(30, 30, 30, 0.98);
     overflow-y: auto;
+    padding-top: 2rem;                /* Extra top padding to prevent cutoff */
 }
 .rank-heart {
     width: 120px;
@@ -827,7 +829,7 @@ body.respawn .ip-copy button:hover {
 .rank-back ul {
     list-style: none;
     padding: 0 1.5rem;
-    margin: 0;
+    margin: 0;                        /* Reset margin to avoid extra top space */
     text-align: left;
     font-size: 1rem;
     line-height: 1.7;
@@ -846,7 +848,6 @@ body.respawn .ip-copy button:hover {
 .gold .rank-front { border-color: #ffd700; }
 .diamond .rank-front { border-color: #00bfff; }
 .hardcore .rank-front { border-color: #ff4500; }
-
 @media (max-width: 768px) {
     .support {
         padding: 4rem 1rem 8rem;
@@ -1416,6 +1417,7 @@ body.respawn .ip-copy button:hover {
         padding: 1rem 1rem;
     }
 }
+
 
 
 
