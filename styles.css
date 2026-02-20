@@ -1290,29 +1290,32 @@ body.respawn .ip-copy button:hover {
         padding: 1rem 0;                  /* Vertical spacing */
     }
 
-    /* Slideshow: Make it full-width and responsive */
+    /* Slideshow: Make it full-width with fixed height for visibility */
     .slideshow {
         position: relative;
         width: 100%;
-        height: auto;                     /* Auto height based on images */
+        height: 40vh;                     /* Fixed height to prevent collapse; adjust if needed */
         overflow: hidden;                 /* Prevent overflow */
     }
 
     .slide {
+        position: absolute;               /* Overlay slides for rotation */
+        top: 0;
+        left: 0;
         width: 100%;
-        height: auto;
-        display: none;                    /* Hide by default, show active */
-        object-fit: cover;                /* Cover the area without distortion */
+        height: 100%;
+        opacity: 0;                       /* Hide by default with opacity (allows preloading) */
+        transition: opacity 1s ease-in-out;
+        object-fit: cover;                /* Fill the container without distortion */
     }
 
     .slide.active {
-        display: block;                   /* Show the active slide */
+        opacity: 1;                       /* Show the active slide */
     }
 
     .slideshow img {
         width: 100% !important;
-        height: auto !important;
-        max-height: 50vh;                 /* Limit max height to half viewport for balance */
+        height: 100% !important;          /* Fill the slideshow container */
     }
 
     /* Caption: Center and style for mobile */
@@ -1387,6 +1390,7 @@ body.respawn .ip-copy button:hover {
         padding: 1rem 1rem;
     }
 }
+
 
 
 
