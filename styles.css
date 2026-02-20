@@ -1331,6 +1331,23 @@ body.respawn .ip-copy button:hover {
         padding: 1rem;
     }
 
+    /* Support page: Fix rank card spacing */
+    .support-ranks {
+        flex-direction: column;           /* Ensure vertical stack */
+        gap: 2.5rem;                      /* Increase gap between cards */
+        align-items: center;              /* Center cards horizontally */
+    }
+
+    .rank-card {
+        width: 90% !important;            /* Slightly narrower for centering/margins */
+        height: auto;                     /* Auto height for content */
+        margin-bottom: 2rem;              /* Extra bottom margin for spacing */
+    }
+
+    .rank-inner, .rank-front, .rank-back {
+        height: 100%;                     /* Ensure full height for flip */
+    }
+
     /* Other mobile styles (keep your existing ones) */
     body {
         font-size: 0.65rem;
@@ -1364,15 +1381,6 @@ body.respawn .ip-copy button:hover {
         font-size: 0.75rem;
         padding: 0.9rem 0.8rem;
         overflow-wrap: break-word;
-    }
-
-    /* Support rank cards */
-    .support-ranks {
-        gap: 2rem;
-    }
-
-    .rank-card {
-        height: auto;
     }
 
     /* Modifications columns */
