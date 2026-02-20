@@ -9,6 +9,34 @@ html {
     scroll-behavior: smooth;
 }
 
+/* ====================== GLOBAL MOBILE FIXES ====================== */
+* {
+    box-sizing: border-box;           /* Prevents padding from making things overflow */
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;               /* Kills horizontal scroll completely */
+    word-break: break-word;           /* Forces long words to break */
+    overflow-wrap: break-word;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Extra aggressive breaking for the pixel font */
+p, li, h1, h2, h3, h4, .rule-card p, .vote-link, .about-text p {
+    word-break: break-all;            /* Breaks even "texturepacks" etc. */
+    hyphens: auto;
+}
+
+/* Make sure ALL containers never exceed screen width */
+.about-row, .rules-highlights, .vote-table, .support-container, 
+.modifications-columns, .contact-content, .support-ranks {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Press Start 2P', cursive;
@@ -1248,126 +1276,69 @@ body.respawn .ip-copy button:hover {
     }
 }
 
-/* New: Mobile-specific fixes */
+/* ====================== MOBILE STYLES (768px and below) ====================== */
 @media (max-width: 768px) {
-    /* Reduce overall font size to prevent wrapping issues */
     body {
-        font-size: 0.75rem; /* Smaller pixel font for better fit */
+        font-size: 0.78rem;           /* Slightly smaller pixel font */
+        padding-top: 50px;
     }
 
-    /* Headers: Smaller size, better centering, allow wrapping */
-    h1, h2 {
-        font-size: 1.2rem; /* Down from implicit larger sizes */
-        line-height: 1.2;
-        word-break: break-word; /* Break long words like "MODIFICATIONS" */
-        hyphens: auto; /* Auto-hyphenate where possible (limited in pixel font) */
-        text-align: center;
+    h1, h2, h3, h4 {
+        font-size: 1.15rem !important;
+        line-height: 1.3;
+        word-break: break-all;
     }
 
-    /* Paragraphs and intro text: Allow breaking, center for better readability */
-    p, .about-text p, .rules-intro p, .vote-intro p, .support-text p, .modifications-intro p {
-        font-size: 0.8rem;
-        word-break: break-word;
-        hyphens: auto;
-        text-align: center; /* Center text blocks for mobile symmetry */
-        padding: 0 1rem; /* Add side padding to prevent edge touching */
+    p, li, .rule-card p, .vote-intro p, .modifications-list li, .support-text p {
+        font-size: 0.82rem;
+        line-height: 1.55;
+        padding: 0 1rem;
     }
 
-    /* Nav menu: Smaller font, center text, more padding for touch */
-    .nav-sidebar {
-        width: 100%; /* Full width on very small screens for easier reading */
-    }
-
-    .nav-menu li a {
-        font-size: 0.9rem; /* Smaller to fit without wrapping */
-        padding: 1rem; /* More touch space */
-        text-align: center; /* Center items */
-        word-break: break-word;
-    }
-
-    /* Ensure full list shows: Increase height if needed, but scrolling is fine */
-    .nav-menu {
-        padding: 4rem 1rem 2rem; /* Adjust top padding for close button */
-    }
-
-    /* Rules page: Center cards and text */
+    /* Rule cards on rules.html */
     .rule-card {
-        text-align: center;
-        font-size: 0.8rem;
-        padding: 1rem;
+        width: 100% !important;
+        padding: 1.2rem 1rem;
+        margin-bottom: 1rem;
     }
 
-    .rule-card p {
-        word-break: break-word;
+    /* Vote links */
+    .vote-link {
+        font-size: 0.85rem;
+        padding: 0.9rem 0.8rem;
+        word-break: break-all;
     }
 
-    /* Modifications page: Center lists on mobile */
-    .modifications-columns {
-        flex-direction: column; /* Already does this, but confirm */
+    /* Hero images (home, events, respawn) */
+    .hero, .right-side, .slideshow img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain;
     }
 
-    .modifications-list {
-        text-align: center; /* Center bullets */
-        font-size: 0.8rem;
-    }
-
-    .modifications-list li {
-        text-align: left; /* Keep bullet text left for readability, but container centered */
-        max-width: 90%;
-        margin: 0 auto 1rem;
-    }
-
-    /* Support page: Stack ranks, make perks visible without hover */
+    /* Support rank cards */
     .support-ranks {
-        flex-direction: column; /* Ensure vertical stack */
+        gap: 2rem;
     }
 
     .rank-card {
-        margin-bottom: 2rem; /* Space between cards */
+        height: auto;
     }
 
-    /* For flip: We'll use JS for click, but as fallback, show back below front on mobile */
-    .rank-back {
-        display: none; /* Hide by default */
+    /* Modifications columns */
+    .modifications-columns {
+        flex-direction: column;
+        gap: 2rem;
     }
 
-    .rank-card.flipped .rank-front {
-        display: none;
-    }
-
-    .rank-card.flipped .rank-back {
-        display: block;
-    }
-
-    /* Adjust rank text sizes */
-    .rank-front h4, .rank-back ul {
-        font-size: 1rem;
-    }
-
-    .rank-back li {
-        font-size: 0.8rem;
-        text-align: left;
-    }
-
-    /* Vote page: Center table and lists */
-    .vote-table, .perks-list {
-        text-align: center;
-        font-size: 0.8rem;
-    }
-
-    .vote-link {
-        font-size: 0.9rem;
-        word-break: break-word;
-    }
-
-    /* General: Reduce padding in sections for mobile */
-    .about-row, .rules-highlights, .vote, .support-container {
-        padding: 1rem;
-    }
-
-    /* Hero/slideshow: Ensure it doesn't overflow */
-    .hero {
-        flex-direction: column; /* Stack left/right on mobile if not already */
+    /* Remove any leftover padding that could push things out */
+    .about-row .about-text,
+    .about-row .about-image,
+    .rules-details,
+    .vote-intro,
+    .modifications-intro {
+        padding: 1rem 1rem;
     }
 }
+
 
